@@ -1,2 +1,2 @@
 
-json.extract! @tweet, :title,:comment
+json.extract! @tweet,:id, :title,:comment

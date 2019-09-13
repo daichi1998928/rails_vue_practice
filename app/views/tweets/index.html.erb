@@ -11,8 +11,9 @@
 
       <tbody>
           <tr v-for="tweet in tweets"  class= "lime" v-bind:key="tweet.id">
-            <td>{{tweet.title}}</td>
+            <td >{{tweet.title}}</td>
             <td>{{tweet.comment}}</td>
+            <td><a v-bind:href="`tweets/` + tweet.id ">詳細画面へ</a></td> 
           </tr>
       </tbody>
     </table>

@@ -2,16 +2,16 @@ import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
 
 var vm = new Vue({
-    el: '#tweets',
+    el: '#tweet',
     data: {
-        tweets: []
+        
     },
     mounted() {
         axios
-        .get(`tweets.json`)
+        .get(`/tweets`)
         .then(res =>{
-        vm.tweets = res.data;
-        console.log(vm.tweets);
+        
+        
         })
 
     },
@@ -19,4 +19,3 @@ var vm = new Vue({
       
     }
 });
-    
