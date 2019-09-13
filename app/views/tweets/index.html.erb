@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tweets</h1>
+<div id="tweets">
+  <ul>
+    <li v-for="tweet in tweets"  class= "lime" v-bind:key="tweet.id"> 
+            {{ tweet.title }}
+    </li> 
+
+  </ul>
+</div> 
+
+<%= javascript_pack_tag 'tweets_vue' %>
