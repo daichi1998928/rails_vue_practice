@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :tweet_set, only:[:show,:edit,:update,:destroy]
   protect_from_forgery
 
   # GET /tweets
@@ -11,14 +11,13 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
-    @tweet = Tweet.find(params[:id])
+      @tweet = Tweet.find(params[:id])    
   end
 
   # GET /tweets/new
   def new
     @tweet = Tweet.new
   end
-
   # GET /tweets/1/edit
   def edit
     @tweet = Tweet.find(params[:id])
@@ -26,18 +25,14 @@ class TweetsController < ApplicationController
 
   # POST /tweets
   # POST /tweets.json
-  def create
-    @tweet = Tweet.new(tweet_params)
-
-    respond_to do |format|
+  def create   
+     @tweet = Tweet.new(tweet_params)
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
-        format.json { render :show, status: :created, location: @tweet }
+        render json: @tweet, status: 200
       else
-        format.html { render :new }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+        render json: @tweet
       end
-    end
+    
   end
 
   # PATCH/PUT /tweets/1
@@ -59,12 +54,11 @@ class TweetsController < ApplicationController
     end
   end
 
-  private
+    private
     # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
+    def tweet_set
+     @tweet = Tweet.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
       params.require(:tweet).permit(:title,:comment)

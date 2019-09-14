@@ -1,5 +1,20 @@
-<h1>New Tweet</h1>
+<script>
+    rails  = {};
+    rails.tweet = <%= raw @tweet.to_json %>;
+    console.log(rails);
+</script>
 
-<%= render 'form', tweet: @tweet %>
+<h1>New Tweet</h1>
+ <div id="tweet_new">
+     <form v-on:submit.prevent="submit" id="">
+        <input v-model="tweet.title" type="text" name="" id="">
+        <input v-model="tweet.comment" type="text">
+        <input type="submit" name="commit" value="Create">
+    </form>  
+  
+  </div>
+
 
 <%= link_to 'Back', tweets_path %>
+
+<%= javascript_pack_tag 'tweet_new' %>
