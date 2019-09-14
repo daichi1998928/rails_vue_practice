@@ -19,7 +19,7 @@
           <tr >
             <td >{{tweet.title}}</td>
             <td>{{tweet.comment}}</td>
-            <td><a href="" v-on:click="edit">編集する</a></td>
+            <td><a v-bind:href="tweet.id + `/edit`">編集する</a></td>
             <td></td> 
           </tr>
       </tbody>

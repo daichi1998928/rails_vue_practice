@@ -1,6 +1,15 @@
-<h1>Editing Tweet</h1>
+<script>
+    rails  = {};
+    rails.tweet = <%= raw @tweet.to_json %>;
+</script>
 
-<%= render 'form', tweet: @tweet %>
-
-<%= link_to 'Show', @tweet %> |
-<%= link_to 'Back', tweets_path %>
+  <div id="tweet_edit">
+     <form v-on:submit.prevent="submit" id="">
+        <input v-model="tweet.title" type="text" name="" id="">
+        <input v-model="tweet.comment" type="text">
+        <input type="submit" name="commit" value="Create">
+    </form>  
+  
+  </div>
+   
+<%= javascript_pack_tag 'tweet_edit' %>
