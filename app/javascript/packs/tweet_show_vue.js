@@ -4,18 +4,14 @@ import axios from 'axios'
 var vm = new Vue({
     el: '#tweet',
     data: {
-        
+      tweet: rails.tweet,
     },
     mounted() {
-        axios
-        .get(`/tweets`)
-        .then(res =>{
         
-        
-        })
-
     },
     methods:{
-      
+      edit: function(){
+        
+      }
     }
 });
