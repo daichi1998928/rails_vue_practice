@@ -11,12 +11,19 @@ var vm = new Vue({
         .get(`tweets.json`)
         .then(res =>{
         vm.tweets = res.data;
-        console.log(vm.tweets);
         })
 
     },
     methods:{
-      
+      destroy:function(id){
+        axios
+        .delete(`/tweets/` + id)
+        .then(res =>{
+        console.log("削除完了")
+        location.href='/tweets' 
+
+        })
+      }
     }
 });
     
